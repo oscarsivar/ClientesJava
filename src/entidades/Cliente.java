@@ -39,14 +39,17 @@ public class Cliente implements Serializable,IParametro{
         this.correoEletronico = correoEletronico;
         this.id = id;
     }
-    
-    
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return this.id.concat("-").concat(this.apellido1)
+                .concat(" ").concat(this.apellido2)
+                .concat(" ").concat(this.nombre);//To change body of generated methods, choose Tools | Templates.
     }
     
+    
+
+
     
     public String getNombre() {
         return nombre;

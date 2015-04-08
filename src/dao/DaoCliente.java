@@ -8,6 +8,7 @@ package dao;
 import interfaces.IDAO;
 import interfaces.IParametro;
 import java.util.ArrayList;
+import entidades.Cliente;
 
 
 /**
@@ -29,12 +30,35 @@ public class DaoCliente implements IDAO{
 
     @Override
     public void modificar(IParametro par) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      Cliente cl=(Cliente) par;
+      almacen= archivo.leerArchivo();
+      int x=0;
+      for(IParametro par1:almacen){
+          Cliente cl1=(Cliente) par1;
+          if(cl1.getId().equals(cl.getId())){
+              almacen.set(x, cl);
+          }
+          x++;
+      }
+      archivo.guardarArchivo(almacen);
     }
+    
 
     @Override
     public void eliminar(IParametro par) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente cl=(Cliente) par;
+        almacen = archivo.leerArchivo();
+        ArrayList<IParametro> almacenCopia = (ArrayList<IParametro>) almacen.clone();
+        
+        int x=0;
+        for(IParametro par1: almacen){
+            Cliente cl1=(Cliente) par1;
+            if (cl1.getId().equals(cl.getId())){
+                almacenCopia.remove(x);
+            }
+            x++;
+        }
+        archivo.guardarArchivo(almacenCopia);
     }
 
     @Override

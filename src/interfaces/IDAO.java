@@ -17,7 +17,6 @@ public interface IDAO {
     public void insertar(IParametro par);
     public void modificar(IParametro par);
     public void eliminar(IParametro par);
-    public void actualizar(IParametro par);
     public ArrayList<IParametro> consultar();
     
 }

@@ -40,6 +40,7 @@ public class DaoArchivo {
         }
     }
     
+    
     public ArrayList<IParametro> leerArchivo(){
         ArrayList<IParametro> almacen = null;
         try{
